@@ -1,0 +1,12 @@
+# add ~/lin/bin to path
+PATH=~/lib/bin:$PATH
+
+# prioritize shims
+PATH=~/shims/bin:$PATH
+
+# add homebrew packages
+PATH=~/homebrew/bin:$PATH
+
+# add nix packages
+PATH=~/.nix-profile/bin:/nix/var/nix/profiles/default/bin:$PATH
+

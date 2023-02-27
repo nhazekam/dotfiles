@@ -1,9 +1,3 @@
-# prioritize shims
-path+=~/shims/bin
-
-# add ~/lin/bin to path
-path+=~/lib/bin
-path+=~/homebrew/bin
 
 # prevent duplicates in zsh history
 setopt HIST_IGNORE_ALL_DUPS
@@ -88,11 +82,10 @@ ta() {
 eval "$(direnv hook zsh)"
 
 # Nix
-if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
-  . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
+if [[ -f '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]]; then
+  source '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
+  export NIX_PATH="$HOME/.nix-defexpr"
 fi
 
-if [[ -f '/etc/profile.d/nix.sh' ]]; then
-  source '/etc/profile.d/nix.sh'
-fi
+
 # End Nix

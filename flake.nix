@@ -17,6 +17,8 @@
       arch = "x86_64-darwin";
     in  {
       defaultPackage.${arch} = home-manager.defaultPackage.${arch};
+
+      overlays = [ ./overlays/firefox.nix ];
  
       homeConfigurations.nicholashazekamp = 
 	home-manager.lib.homeManagerConfiguration {

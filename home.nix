@@ -11,10 +11,13 @@
     pkgs.asdf
   ];
 
+  programs.firefox.package = Firefox;
+    
   programs.zsh = {
     enable = true;
     defaultKeymap = "viins";
     profileExtra = builtins.readFile ./zprofile;
+    initExtraBeforeCompInit = builtins.readFile ./pre-zshrc;
     initExtra = builtins.readFile ./zshrc;
     envExtra = builtins.readFile ./zshenv;
 
@@ -44,23 +47,30 @@
         "zoxide"
       ];
     };
-
-
   };
 
-  programs.git = {
+  programs.bat = {
     enable = true;
-    includes = [{ path = "~/.config/nixpkgs/gitconfig"; }];
+    themes = {
+      dracula = builtins.readFile (pkgs.fetchFromGitHub {
+        owner = "dracula";
+        repo = "sublime"; # Bat uses sublime syntax for its themes
+        rev = "26c57ec282abcaa76e57e055f38432bd827ac34e";
+        sha256 = "019hfl4zbn4vm4154hh3bwk6hm7bdxbr1hdww83nabxwjn99ndhv";
+      } + "/Dracula.tmTheme");
+    };
   };
 
-  programs.neovim = {
+  programs.dircolors = {
     enable = true;
-
-    viAlias = true;
-    vimAlias = true;
+    enableZshIntegration = true;
   };
 
-  programs.firefox.package = Firefox;
+  programs.direnv = {
+    enable = true;
+    enableZshIntegration = true;
+    nix-direnv.enable = true;
+  };
 
   programs.fzf = {
     enable = true;
@@ -69,12 +79,53 @@
     fileWidgetCommand = "fd --hidden --follow --exclude \".git\" . $HOME";
   };
 
-  programs.zoxide = {
+  programs.git = {
+    enable = true;
+    lfs.enable = true;
+    includes = [{ path = "~/.config/nixpkgs/gitconfig"; }];
+  };
+
+  programs.gpg = {
     enable = true;
   };
 
-  programs.direnv = {
+  programs.navi = {
     enable = true;
-    nix-direnv.enable = true;
+    enableZshIntegration = true;
   };
+
+  programs.neovim = {
+    enable = true;
+    defaultEditor = true;
+
+    viAlias = true;
+    vimAlias = true;
+  };
+
+  programs.nix-index = {
+    enable = true;
+    enableZshIntegration = true;
+  };
+
+  programs.tmux = {
+    enable = true;
+    clock24 = true;
+    newSession = true;
+  };
+
+  programs.watson = {
+    enable = true;
+    enableZshIntegration = true;
+    settings = {
+      options = {
+        stop_on_start = true;
+      };
+    };
+  };
+
+  programs.zoxide = {
+    enable = true;
+    enableZshIntegration = true;
+  };
+
 }
