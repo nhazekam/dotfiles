@@ -22,5 +22,11 @@
         pkgs = nixpkgs.legacyPackages.x86_64-darwin;
         modules = [ ./home.nix ];
     };
+
+    homeConfigurations."nickhazekamp@archaic" = 
+      home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages.aarch64-darwin;
+        modules = [ ./home.nix ];
+    };
   };
 }

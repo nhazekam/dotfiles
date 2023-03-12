@@ -8,15 +8,14 @@
   home.packages = [
     pkgs.ripgrep
     pkgs.thefuck
-    pkgs.asdf
     pkgs.rlwrap
     pkgs.curl
     pkgs.jq
     pkgs.unzip
   ];
 
-  home.file.".tool-versions".source = ./tool-versions
-  home.file.".asdfrc".source = ./asdfrc
+  home.file.".tool-versions".source = ./tool-versions;
+  home.file.".asdfrc".source = ./asdfrc;
 
   programs.firefox.package = Firefox;
     

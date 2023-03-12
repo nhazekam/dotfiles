@@ -29,6 +29,17 @@ brew bundle install
 brew bundle --file=~/.config/nixpkgs/Brewfile
 ```
 
+### Install ASDF
+```
+git clone https://github.com/asdf-vm/asdf.git ~/.asdf
+```
+
+- or -
+
+```
+brew install asdf
+```
+
 ### Install Rust
 ```
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
