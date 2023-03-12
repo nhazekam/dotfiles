@@ -53,6 +53,16 @@ asdf install
 curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh
 ```
 
+### Install Lisp
+```
+brew install sbcl
+```
+
+### Install Racket
+```
+brew install --cask racket
+```
+
 ## Update config
 
 ### Changes to flakes.nix or home.nix
