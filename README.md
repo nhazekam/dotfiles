@@ -29,6 +29,30 @@ brew bundle install
 brew bundle --file=~/.config/nixpkgs/Brewfile
 ```
 
+### Install Rust
+```
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+```
+
+### Install NodeJS
+```
+asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
+asdf plugin-add yarn
+asdf install
+```
+
+### Install Java/Closure
+```
+asdf plugin-add java https://github.com/halcyon/asdf-java.git
+asdf plugin add clojure https://github.com/asdf-community/asdf-clojure.git
+asdf install
+```
+
+### Install Haskell
+```
+curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh
+```
+
 ## Update config
 
 ### Changes to flakes.nix or home.nix
